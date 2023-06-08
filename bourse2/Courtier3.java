@@ -1,13 +1,15 @@
-package pubsub.fanout;
+package bourse2;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
-public class SubSimple {
+import java.util.HashMap;
 
-    private static final String EXCHANGE_NAME = "logs";
+public class Courtier3 {
+
+    private static final String EXCHANGE_NAME = "bourse_headers";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -15,9 +17,12 @@ public class SubSimple {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(EXCHANGE_NAME, "bourse1");
+        channel.exchangeDeclare(EXCHANGE_NAME, "headers");
         String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, EXCHANGE_NAME, "");
+        HashMap map = new HashMap<String,Object>();
+        map.put("x-match","any");
+        map.put("MSFT","TRUE");
+        channel.queueBind(queueName, EXCHANGE_NAME, "", map);
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 

@@ -13,7 +13,7 @@ public class PubSimple {
         factory.setHost("localhost");
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
-            channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
+            channel.exchangeDeclare(EXCHANGE_NAME, "bourse1");
 
             String message = argv.length < 1 ? "info: Hello World!" :
                     String.join(" ", argv);
