@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Exo Bourse v1 et v2">
-      <change afterPath="$PROJECT_DIR$/ecom/Commande.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecom/ServiceBanque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecom/ServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecom/ServiceFacturation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecom/ServiceLivraison.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecom/ServiceStocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecom/ServiceWeb.java" afterDir="false" />
+    <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Exo ECommerce v1, ajout des décrémentations stocks et facturation plus ajout de commentaires">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/Commande.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/Commande.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ServiceBanque.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ServiceBanque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ServiceCommandes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ServiceFacturation.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ServiceFacturation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ServiceLivraison.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ServiceLivraison.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ServiceStocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ServiceStocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ServiceWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ServiceWeb.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/torguet/dev/Java/TDTPRabbitMQ",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -66,22 +70,9 @@
       <recent name="exo1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServiceClient">
-    <configuration name="ServiceBanque" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ecom.ServiceBanque" />
-      <module name="demoRabbitMQ" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ecom.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ecom.ServiceClient" />
+  <component name="RunManager" selected="Application.ServiceWeb">
+    <configuration name="ServiceCommandes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ecom.ServiceCommandes" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
@@ -95,6 +86,19 @@
     </configuration>
     <configuration name="ServiceFacturation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ecom.ServiceFacturation" />
+      <module name="demoRabbitMQ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ecom.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceLivraison" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ecom.ServiceLivraison" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
@@ -133,8 +137,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ServiceBanque" />
-      <item itemvalue="Application.ServiceClient" />
+      <item itemvalue="Application.ServiceCommandes" />
+      <item itemvalue="Application.ServiceLivraison" />
       <item itemvalue="Application.ServiceFacturation" />
       <item itemvalue="Application.ServiceStocks" />
       <item itemvalue="Application.ServiceWeb" />
@@ -143,9 +147,9 @@
       <list>
         <item itemvalue="Application.ServiceWeb" />
         <item itemvalue="Application.ServiceStocks" />
+        <item itemvalue="Application.ServiceLivraison" />
         <item itemvalue="Application.ServiceFacturation" />
-        <item itemvalue="Application.ServiceBanque" />
-        <item itemvalue="Application.ServiceClient" />
+        <item itemvalue="Application.ServiceCommandes" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +161,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686217567151</updated>
-      <workItem from="1686217568250" duration="14343000" />
+      <workItem from="1686217568250" duration="14488000" />
+      <workItem from="1686298520365" duration="9188000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout biblio gson">
       <created>1686217850024</created>
@@ -180,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686228386123</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Exo ECommerce v1">
+      <created>1686238963723</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686238963723</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,15 +202,27 @@
     <MESSAGE value="Ajout biblio gson" />
     <MESSAGE value="Exo Usine v1 et v2" />
     <MESSAGE value="Exo Bourse v1 et v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exo Bourse v1 et v2" />
+    <MESSAGE value="Exo ECommerce v1" />
+    <MESSAGE value="Exo ECommerce v1, ajout des décrémentations stocks et facturation plus ajout de commentaires" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exo ECommerce v1, ajout des décrémentations stocks et facturation plus ajout de commentaires" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ecom/ServiceClient.java</url>
+          <url>file://$PROJECT_DIR$/ecom/ServiceCommandes.java</url>
           <line>39</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ecom/ServiceFacturation.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ecom/ServiceBanque.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
