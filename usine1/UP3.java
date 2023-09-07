@@ -23,6 +23,7 @@ public class UP3 {
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String json = new String(delivery.getBody(), StandardCharsets.UTF_8);
+            System.out.println(json);
             Piece p = gson.fromJson(json, Piece.class);
             System.out.println(" [x] Received '" + p + "'");
             try {
