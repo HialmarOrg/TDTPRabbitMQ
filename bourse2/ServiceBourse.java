@@ -14,17 +14,21 @@ public class ServiceBourse {
     private Channel channel;
     private Gson gson = new Gson();
 
+    private final HashMap<String, TitreBoursier> titres = new HashMap<>();
+
+
     public ServiceBourse() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
         channel = connection.createChannel();
-        channel.exchangeDeclare(EXCHANGE_NAME, "bourse_headers");
+        channel.exchangeDeclare(EXCHANGE_NAME, "headers", true);
 
         String queueName = channel.queueDeclare().getQueue();
         channel.queueBind(queueName, EXCHANGE_NAME, "", null);
 
         System.out.println(" Service Bourse [*] Waiting for messages. To exit press CTRL+C");
+
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
@@ -37,39 +41,105 @@ public class ServiceBourse {
         DeliverCallback deliverCallbackRPC = (consumerTag, delivery) -> {
             this.gestionRPC(consumerTag, delivery);
         };
-        channel.basicConsume(queueName, true, deliverCallback, consumerTag -> { });
+        channel.basicConsume("bourse_rpc", true, deliverCallbackRPC, consumerTag -> { });
 
 
     }
 
     private void gestionRPC(String consumerTag, Delivery delivery) {
-        Object op = delivery.getProperties().getHeaders().get("OP");
+        String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
+        System.out.println(" [x] Received RPC '" + message + "'");
+        String op = delivery.getProperties().getHeaders().get("OP").toString();
+        System.out.println(op.toString());
         if (op instanceof String) {
+            System.out.println("Reception RPC Op "+op);
             OperationType operationType = OperationType.valueOf((String)op);
-            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-            System.out.println(" [x] Received '" + message + "'");
-            Gson gson = new Gson();
+
             TitreBoursier titreBoursier = gson.fromJson(message, TitreBoursier.class);
             switch(operationType){
-                case CREATE -> this.createTitre(titreBoursier);
-                case UPDATE -> this.updateTite(titreBoursier);
-                case DELETE -> this.deleteTitre(titreBoursier);
-                case REQUEST -> this.getTitre(titreBoursier);
+                case CREATE -> this.createTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
+                case UPDATE -> this.updateTite(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
+                case DELETE -> this.deleteTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
+                case REQUEST -> this.getTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
             }
         }
     }
 
-    private void getTitre(TitreBoursier titreBoursier) {
+    public void updateTitre(TitreBoursier titreBoursier) {
+        titres.put(titreBoursier.getMnemo(), titreBoursier);
     }
 
-    private void deleteTitre(TitreBoursier titreBoursier) {
+    public TitreBoursier getFromTitres(String mnemonic) {
+        return titres.get(mnemonic);
     }
 
-    private void updateTite(TitreBoursier titreBoursier) {
+    public void deleteFromTitres(String mnemonic) {
+        titres.remove(mnemonic);
     }
 
-    private void createTitre(TitreBoursier body) {
+    private void getTitre(TitreBoursier titreBoursier, String fileReponse, String correlationId) {
+        TitreBoursier titreBoursierComplet = this.getFromTitres(titreBoursier.getMnemo());
+        if (titreBoursierComplet != null) {
+            String json = gson.toJson(titreBoursierComplet);
+            AMQP.BasicProperties props = new AMQP.BasicProperties();
+            props = props.builder().correlationId(correlationId).build();
+            try {
+                channel.basicPublish("", fileReponse, props, json.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            AMQP.BasicProperties props = new AMQP.BasicProperties();
+            props = props.builder().correlationId(correlationId).build();
+            try {
+                String json = gson.toJson(new ResponseMessage("Titre Inconnu"));
+                channel.basicPublish("", fileReponse, props, json.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
+
+    private void deleteTitre(TitreBoursier titreBoursier, String fileReponse, String correlationId) {
+        this.deleteFromTitres(titreBoursier.getMnemo());
+        AMQP.BasicProperties props = new AMQP.BasicProperties();
+        props = props.builder().correlationId(correlationId).build();
+        try {
+            String json = gson.toJson(new ResponseMessage("Done"));
+            channel.basicPublish("", fileReponse, props, json.getBytes(StandardCharsets.UTF_8));
+            publier(titreBoursier, OperationType.DELETE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateTite(TitreBoursier titreBoursier, String fileReponse, String correlationId) {
+        this.updateTitre(titreBoursier);
+        AMQP.BasicProperties props = new AMQP.BasicProperties();
+        props = props.builder().correlationId(correlationId).build();
+        try {
+            String json = gson.toJson(new ResponseMessage("Done"));
+            channel.basicPublish("", fileReponse, props, json.getBytes(StandardCharsets.UTF_8));
+            publier(titreBoursier, OperationType.UPDATE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void createTitre(TitreBoursier titreBoursier, String fileReponse, String correlationId) {
+        this.updateTitre(titreBoursier);
+        AMQP.BasicProperties props = new AMQP.BasicProperties();
+        props = props.builder().correlationId(correlationId).build();
+        try {
+            String json = gson.toJson(new ResponseMessage("Done"));
+            channel.basicPublish("", fileReponse, props, json.getBytes(StandardCharsets.UTF_8));
+            publier(titreBoursier, OperationType.CREATE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void publier(TitreBoursier titreBoursier, OperationType operationType) throws IOException {
         String json = gson.toJson(titreBoursier);
@@ -86,12 +156,15 @@ public class ServiceBourse {
 
         TitreBoursier google = new TitreBoursier("GOOG", "Google Inc.", 391.03f, 0.0f);
         TitreBoursier microsoft = new TitreBoursier("MSFT", "Microsoft Corp.", 25.79f, 0.0f);
+        service.updateTitre(google);
+        service.updateTitre(microsoft);
 
         service.publier(google, OperationType.CREATE);
         System.out.println("Publication de "+google);
         service.publier(microsoft, OperationType.CREATE);
         System.out.println("Publication de "+microsoft);
         Thread.sleep(1000);
+        /*
         for(int i=0; i<10; i++) {
             float variation = (float)Math.random() * 20.0f - 10.0f;
             google.setVariation(variation);
@@ -103,5 +176,11 @@ public class ServiceBourse {
             System.out.println("Publication de "+microsoft);
             Thread.sleep(1000);
         }
+
+         */
+
+
     }
+
+
 }

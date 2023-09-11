@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Exo ECommerce v1, ajout des décrémentations stocks et facturation plus ajout de commentaires">
       <change afterPath="$PROJECT_DIR$/bourse2/OperationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bourse2/ResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse2/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse2/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse2/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse2/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/ServiceBourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usine1/UP3.java" beforeDir="false" afterPath="$PROJECT_DIR$/usine1/UP3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +28,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/torguet/dev/Java/TDTPRabbitMQ",
+    "last_opened_file_path": "/Users/torguet/dev/Java/TDTPRabbitMQ/bourse2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,12 +58,12 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bourse2" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/bourse1" />
       <recent name="$PROJECT_DIR$/exo1v2" />
@@ -77,52 +75,13 @@
       <recent name="exo1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Courtier3">
-    <configuration name="Courtier1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.Courtier1" />
+  <component name="RunManager" selected="Application.ServiceBourse">
+    <configuration name="RPCBourseClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bourse2.RPCBourseClient" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="bourse2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Courtier2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.Courtier2" />
-      <module name="demoRabbitMQ" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bourse2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Courtier3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.Courtier3" />
-      <module name="demoRabbitMQ" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bourse2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Receiver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="objects.Receiver" />
-      <module name="demoRabbitMQ" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="objects.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,20 +102,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServiceLivraison" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ecom.ServiceLivraison" />
+      <module name="demoRabbitMQ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ecom.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceStocks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ecom.ServiceStocks" />
+      <module name="demoRabbitMQ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ecom.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceWeb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ecom.ServiceWeb" />
+      <module name="demoRabbitMQ" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ecom.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Receiver" />
+      <item itemvalue="Application.RPCBourseClient" />
       <item itemvalue="Application.ServiceBourse" />
-      <item itemvalue="Application.Courtier1" />
-      <item itemvalue="Application.Courtier2" />
-      <item itemvalue="Application.Courtier3" />
+      <item itemvalue="Application.ServiceLivraison" />
+      <item itemvalue="Application.ServiceStocks" />
+      <item itemvalue="Application.ServiceWeb" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Courtier3" />
-        <item itemvalue="Application.Courtier2" />
-        <item itemvalue="Application.Courtier1" />
         <item itemvalue="Application.ServiceBourse" />
-        <item itemvalue="Application.Receiver" />
+        <item itemvalue="Application.RPCBourseClient" />
+        <item itemvalue="Application.ServiceWeb" />
+        <item itemvalue="Application.ServiceStocks" />
+        <item itemvalue="Application.ServiceLivraison" />
       </list>
     </recent_temporary>
   </component>
@@ -169,14 +167,13 @@
       <option name="presentableId" value="Default" />
       <updated>1686217567151</updated>
       <workItem from="1686217568250" duration="14488000" />
-      <workItem from="1686298520365" duration="9188000" />
-      <workItem from="1686320082358" duration="1511000" />
-      <workItem from="1686669318123" duration="399000" />
-      <workItem from="1686669731291" duration="574000" />
-      <workItem from="1686670318861" duration="459000" />
-      <workItem from="1686670788015" duration="124000" />
-      <workItem from="1686670940236" duration="598000" />
-      <workItem from="1693829341497" duration="7748000" />
+      <workItem from="1686298520365" duration="9897000" />
+      <workItem from="1686559845957" duration="613000" />
+      <workItem from="1692607948323" duration="11000" />
+      <workItem from="1693467917718" duration="605000" />
+      <workItem from="1693813550361" duration="822000" />
+      <workItem from="1694073722234" duration="1576000" />
+      <workItem from="1694416967332" duration="6661000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout biblio gson">
       <created>1686217850024</created>
@@ -206,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686238963723</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Exo ECommerce v1, ajout des décrémentations stocks et facturation plus ajout de commentaires">
+      <created>1686313382478</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686313382478</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

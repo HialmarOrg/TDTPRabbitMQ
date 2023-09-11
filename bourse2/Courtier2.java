@@ -17,7 +17,7 @@ public class Courtier2 {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(EXCHANGE_NAME, "bourse_headers");
+        channel.exchangeDeclare(EXCHANGE_NAME, "headers", true);
         String queueName = channel.queueDeclare().getQueue();
         HashMap map = new HashMap<String,Object>();
         map.put("x-match","any");
