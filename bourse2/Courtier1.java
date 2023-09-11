@@ -5,7 +5,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
-import java.util.HashMap;
+import java.nio.charset.StandardCharsets;
 
 public class Courtier1 {
 
@@ -19,16 +19,12 @@ public class Courtier1 {
 
         channel.exchangeDeclare(EXCHANGE_NAME, "headers", true);
         String queueName = channel.queueDeclare().getQueue();
-        HashMap map = new HashMap<String,Object>();
-        map.put("x-match","any");
-        map.put("GOOG","TRUE");
-        map.put("MSFT","TRUE");
-        channel.queueBind(queueName, EXCHANGE_NAME, "", map);
+        channel.queueBind(queueName, EXCHANGE_NAME, "", null);
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            String message = new String(delivery.getBody(), "UTF-8");
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println(" [x] Received '" + message + "'");
         };
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> { });

@@ -11,8 +11,8 @@ import java.util.HashMap;
 public class ServiceBourse {
 
     private static final String EXCHANGE_NAME = "bourse_headers";
-    private Channel channel;
-    private Gson gson = new Gson();
+    private final Channel channel;
+    private final Gson gson = new Gson();
 
     private final HashMap<String, TitreBoursier> titres = new HashMap<>();
 
@@ -31,7 +31,7 @@ public class ServiceBourse {
 
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            String message = new String(delivery.getBody(), "UTF-8");
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println(" Service Bourse [x] Received '" + message + "'");
         };
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> { });
@@ -50,23 +50,33 @@ public class ServiceBourse {
         String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
         System.out.println(" [x] Received RPC '" + message + "'");
         String op = delivery.getProperties().getHeaders().get("OP").toString();
-        System.out.println(op.toString());
+        System.out.println(op);
         if (op instanceof String) {
             System.out.println("Reception RPC Op "+op);
-            OperationType operationType = OperationType.valueOf((String)op);
+            OperationType operationType = OperationType.valueOf(op);
 
             TitreBoursier titreBoursier = gson.fromJson(message, TitreBoursier.class);
+            System.out.println(titreBoursier);
             switch(operationType){
                 case CREATE -> this.createTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
-                case UPDATE -> this.updateTite(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
+                case UPDATE -> this.updateTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
                 case DELETE -> this.deleteTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
                 case REQUEST -> this.getTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
             }
         }
     }
 
-    public void updateTitre(TitreBoursier titreBoursier) {
+    public TitreBoursier updateTitre(TitreBoursier titreBoursier) {
+        TitreBoursier old = titres.get(titreBoursier.getMnemo());
+        if (old != null) {
+            System.out.println("Update old "+ old);
+            // calcul de la variation
+            titreBoursier.setVariation((titreBoursier.getCours() - old.getCours()) / old.getCours() * 100.0f);
+        }
+        System.out.println("Update new "+ titreBoursier);
         titres.put(titreBoursier.getMnemo(), titreBoursier);
+
+        return titreBoursier;
     }
 
     public TitreBoursier getFromTitres(String mnemonic) {
@@ -114,8 +124,8 @@ public class ServiceBourse {
         }
     }
 
-    private void updateTite(TitreBoursier titreBoursier, String fileReponse, String correlationId) {
-        this.updateTitre(titreBoursier);
+    private void updateTitre(TitreBoursier titreBoursier, String fileReponse, String correlationId) {
+        titreBoursier = this.updateTitre(titreBoursier);
         AMQP.BasicProperties props = new AMQP.BasicProperties();
         props = props.builder().correlationId(correlationId).build();
         try {

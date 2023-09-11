@@ -1,9 +1,9 @@
 package bourse1;
 
 public class TitreBoursier {
-    private String mnemo;
-    private String nomComplet;
-    private float cours;
+    final private String mnemo;
+    final private String nomComplet;
+    final private float cours;
     private float variation;
 
     public TitreBoursier(String mnemo, String nomComplet, float cours, float variation) {
@@ -35,7 +35,6 @@ public class TitreBoursier {
 
     public void setVariation(float variation) {
         this.variation = variation;
-        cours += variation;
     }
 
 }
