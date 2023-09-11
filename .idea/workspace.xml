@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Exo ECommerce v1, ajout des décrémentations stocks et facturation plus ajout de commentaires">
-      <change afterPath="$PROJECT_DIR$/bourse2/OperationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bourse2/ResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/ServiceBourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +23,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -40,27 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/torguet/dev/Java/TDTPRabbitMQ/bourse2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/torguet/dev/Java/TDTPRabbitMQ/bourse2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bourse2" />
@@ -75,7 +72,7 @@
       <recent name="exo1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ServiceBourse">
+  <component name="RunManager" selected="Application.RPCBourseClient">
     <configuration name="RPCBourseClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bourse2.RPCBourseClient" />
       <module name="demoRabbitMQ" />
@@ -150,8 +147,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ServiceBourse" />
         <item itemvalue="Application.RPCBourseClient" />
+        <item itemvalue="Application.ServiceBourse" />
         <item itemvalue="Application.ServiceWeb" />
         <item itemvalue="Application.ServiceStocks" />
         <item itemvalue="Application.ServiceLivraison" />

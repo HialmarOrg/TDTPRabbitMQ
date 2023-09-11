@@ -53,17 +53,20 @@ public class RPCBourseClient implements AutoCloseable {
 
             // Récupération du choix de l'utilisateur
             int choix = scanner.nextInt();
+            scanner.nextLine();
 
             // Traitement du choix de l'utilisateur
             switch (choix) {
 
                 case 1:
                     // Création d'un titre
-                    System.out.print("Nom du titre : ");
-                    String nom = scanner.next();
                     System.out.print("Mnémonique du titre : ");
-                    String mnemo = scanner.next();
+                    String mnemo = scanner.nextLine();
+                    System.out.print("Nom du titre : ");
+                    String nom = scanner.nextLine();
                     System.out.print("Prix du titre : ");
+                    while(!scanner.hasNextFloat())
+                        scanner.nextLine();
                     float prix = scanner.nextFloat();
                     TitreBoursier titreBoursier = new TitreBoursier(mnemo, nom, prix, 0.0f);
                     bourseClient.call(titreBoursier, OperationType.CREATE);
@@ -79,11 +82,13 @@ public class RPCBourseClient implements AutoCloseable {
 
                 case 3:
                     // Mise à jour d'un titre
-                    System.out.print("Nom du titre : ");
-                    nom = scanner.next();
                     System.out.print("Mnémonique du titre : ");
-                    mnemo = scanner.next();
+                    mnemo = scanner.nextLine();
+                    System.out.print("Nom du titre : ");
+                    nom = scanner.nextLine();
                     System.out.print("Prix du titre : ");
+                    while(!scanner.hasNextFloat())
+                        scanner.nextLine();
                     prix = scanner.nextFloat();
                     titreBoursier = new TitreBoursier(mnemo, nom, prix, 0.0f);
                     bourseClient.call(titreBoursier, OperationType.UPDATE);
