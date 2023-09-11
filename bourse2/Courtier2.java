@@ -7,6 +7,9 @@ import com.rabbitmq.client.DeliverCallback;
 
 import java.util.HashMap;
 
+/**
+ * Courtier uniquement intéressé par Google
+ */
 public class Courtier2 {
 
     private static final String EXCHANGE_NAME = "bourse_headers";
@@ -21,7 +24,7 @@ public class Courtier2 {
         String queueName = channel.queueDeclare().getQueue();
         HashMap map = new HashMap<String,Object>();
         map.put("x-match","any");
-        map.put("GOOG","TRUE");
+        map.put("GOOG","TRUE"); // ici, on précise qu'on veut du Google
         channel.queueBind(queueName, EXCHANGE_NAME, "", map);
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");

@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Correction calcul variation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse1/TitreBoursier.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse1/TitreBoursier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse2/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/OperationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/ResponseMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse2/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/ServiceBourse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,9 +155,9 @@
       <list>
         <item itemvalue="Application.Courtier1" />
         <item itemvalue="Application.ServiceBourse" />
+        <item itemvalue="Application.RPCBourseClient" />
         <item itemvalue="Application.Courtier3" />
         <item itemvalue="Application.Courtier2" />
-        <item itemvalue="Application.RPCBourseClient" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694440209438</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Correction calcul variation">
+      <created>1694442695346</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694442695346</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

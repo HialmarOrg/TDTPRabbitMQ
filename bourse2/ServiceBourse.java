@@ -8,62 +8,84 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
+/**
+ * Serveur AMQP pour la Bourse
+ */
 public class ServiceBourse {
 
+    // Échangeur pour la publication des cours
     private static final String EXCHANGE_NAME = "bourse_headers";
+    // Canal avec le broker
     private final Channel channel;
+    // Convertisseur JSON
     private final Gson gson = new Gson();
 
+    // Stockage des titres boursiers
     private final HashMap<String, TitreBoursier> titres = new HashMap<>();
 
-
+    /**
+     * Constructeur
+     * @throws Exception en cas de pb de communication avec le broker
+     */
     public ServiceBourse() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
+        // on se connecte au broker local à la machine
         factory.setHost("localhost");
+        // connexion et canal
         Connection connection = factory.newConnection();
         channel = connection.createChannel();
+        // Déclaration de l'échangeur pour les cours
         channel.exchangeDeclare(EXCHANGE_NAME, "headers", true);
-
+        // File pour cet échangeur
         String queueName = channel.queueDeclare().getQueue();
+        // Liaison entre les deux
         channel.queueBind(queueName, EXCHANGE_NAME, "", null);
 
         System.out.println(" Service Bourse [*] Waiting for messages. To exit press CTRL+C");
 
-
+        // Callback pour vérifier que les cours sont bien envoyés
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println(" Service Bourse [x] Received '" + message + "'");
         };
+        // Inscription du callback
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> { });
-
+        // File pour les RPC
         channel.queueDeclare("bourse_rpc", true, false, false, null);
-
+        // Callback pour les RPC
         DeliverCallback deliverCallbackRPC = (consumerTag, delivery) -> {
+            // on les traite ailleurs
             this.gestionRPC(consumerTag, delivery);
         };
+        // Inscription du callback pour les RPC
         channel.basicConsume("bourse_rpc", true, deliverCallbackRPC, consumerTag -> { });
-
-
     }
 
+    /**
+     * Gestion des RPC
+     * @param consumerTag : le tag du callback (inutilisé)
+     * @param delivery : le message
+     */
     private void gestionRPC(String consumerTag, Delivery delivery) {
+        // On récupère la chaine
         String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
         System.out.println(" [x] Received RPC '" + message + "'");
+        // On récupère le type d'opération
         String op = delivery.getProperties().getHeaders().get("OP").toString();
         System.out.println(op);
-        if (op instanceof String) {
-            System.out.println("Reception RPC Op "+op);
-            OperationType operationType = OperationType.valueOf(op);
-
-            TitreBoursier titreBoursier = gson.fromJson(message, TitreBoursier.class);
-            System.out.println(titreBoursier);
-            switch(operationType){
-                case CREATE -> this.createTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
-                case UPDATE -> this.updateTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
-                case DELETE -> this.deleteTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
-                case REQUEST -> this.getTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
-            }
+        System.out.println("Reception RPC Op "+op);
+        // On retransforme le type en valeur d'énumération
+        OperationType operationType = OperationType.valueOf(op);
+        // On convertit le corps en TitreBoursier
+        TitreBoursier titreBoursier = gson.fromJson(message, TitreBoursier.class);
+        System.out.println(titreBoursier);
+        switch(operationType){
+            case CREATE -> this.createTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
+            case UPDATE -> this.updateTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
+            case DELETE -> this.deleteTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
+            case REQUEST -> this.getTitre(titreBoursier, delivery.getProperties().getReplyTo(), delivery.getProperties().getCorrelationId());
         }
+
     }
 
     public TitreBoursier updateTitre(TitreBoursier titreBoursier) {
@@ -173,23 +195,24 @@ public class ServiceBourse {
         System.out.println("Publication de "+google);
         service.publier(microsoft, OperationType.CREATE);
         System.out.println("Publication de "+microsoft);
-        Thread.sleep(1000);
-        /*
-        for(int i=0; i<10; i++) {
-            float variation = (float)Math.random() * 20.0f - 10.0f;
-            google.setVariation(variation);
-            service.publier(google, OperationType.UPDATE);
-            System.out.println("Publication de "+google);
-            variation = (float)Math.random() * 20.0f - 10.0f;
-            microsoft.setVariation(variation);
-            service.publier(microsoft, OperationType.UPDATE);
-            System.out.println("Publication de "+microsoft);
-            Thread.sleep(1000);
+        Thread.sleep(10000);
+
+        while(true) {
+            service.publishAll();
+            Thread.sleep(10000);
         }
 
-         */
 
+    }
 
+    private void publishAll() {
+        for (TitreBoursier titreBoursier: titres.values()) {
+            try {
+                publier(titreBoursier, OperationType.UPDATE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
