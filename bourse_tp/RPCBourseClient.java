@@ -1,6 +1,5 @@
-package bourse2;
+package bourse_tp;
 
-import bourse1.TitreBoursier;
 import com.google.gson.Gson;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -22,13 +21,13 @@ import java.util.concurrent.TimeoutException;
 public class RPCBourseClient implements AutoCloseable {
 
     // Connexion
-    private Connection connection;
+    private final Connection connection;
     // Canal de communication
-    private Channel channel;
+    private final Channel channel;
     // File pour les requêtes
-    private String requestQueueName = "bourse_rpc";
+    private final String requestQueueName = "bourse_rpc";
     // Convertisseur JSON
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     /**
      * Constructeur
@@ -151,7 +150,7 @@ public class RPCBourseClient implements AutoCloseable {
         // création de la file pour la réponse
         String replyQueueName = channel.queueDeclare().getQueue();
         // Ajout du type d'opération
-        HashMap map = new HashMap<String,Object>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put("OP", operationType.name());
         // Construction des propriétés du message
         AMQP.BasicProperties props = new AMQP.BasicProperties
@@ -172,7 +171,7 @@ public class RPCBourseClient implements AutoCloseable {
             // si on a bien la bonne réponse
             if (delivery.getProperties().getCorrelationId().equals(corrId)) {
                 // on complète le CompletableFuture avec la réponse
-                response.complete(new String(delivery.getBody(), "UTF-8"));
+                response.complete(new String(delivery.getBody(), StandardCharsets.UTF_8));
             }
         }, consumerTag -> {
         });

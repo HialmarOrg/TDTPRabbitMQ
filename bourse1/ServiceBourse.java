@@ -1,5 +1,6 @@
 package bourse1;
 
+import bourse_tp.TitreBoursier;
 import com.google.gson.Gson;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -10,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 
 public class ServiceBourse {
     private static final String EXCHANGE_NAME = "bourse";
-    private Channel channel;
-    private Gson gson = new Gson();
+    private final Channel channel;
+    private final Gson gson = new Gson();
 
     public ServiceBourse() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();

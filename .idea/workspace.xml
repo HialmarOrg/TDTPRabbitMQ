@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Correction calcul variation">
+    <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/Courtier3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/OperationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse2/ServiceBourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse1/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse1/ServiceBourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse1/TitreBoursier.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/TitreBoursier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/Courtier1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/Courtier2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/Courtier3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/OperationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/RPCBourseClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse2/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ServiceBourse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +82,11 @@
   </component>
   <component name="RunManager" selected="Application.Courtier3">
     <configuration name="Courtier1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.Courtier1" />
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.Courtier1" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bourse2.*" />
+          <option name="PATTERN" value="bourse_tp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,11 +95,11 @@
       </method>
     </configuration>
     <configuration name="Courtier2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.Courtier2" />
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.Courtier2" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bourse2.*" />
+          <option name="PATTERN" value="bourse_tp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,11 +108,11 @@
       </method>
     </configuration>
     <configuration name="Courtier3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.Courtier3" />
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.Courtier3" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bourse2.*" />
+          <option name="PATTERN" value="bourse_tp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,11 +121,11 @@
       </method>
     </configuration>
     <configuration name="RPCBourseClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.RPCBourseClient" />
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.RPCBourseClient" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bourse2.*" />
+          <option name="PATTERN" value="bourse_tp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,11 +134,11 @@
       </method>
     </configuration>
     <configuration name="ServiceBourse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse2.ServiceBourse" />
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.ServiceBourse" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="bourse2.*" />
+          <option name="PATTERN" value="bourse_tp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -153,11 +155,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Courtier1" />
-        <item itemvalue="Application.ServiceBourse" />
         <item itemvalue="Application.RPCBourseClient" />
+        <item itemvalue="Application.ServiceBourse" />
         <item itemvalue="Application.Courtier3" />
         <item itemvalue="Application.Courtier2" />
+        <item itemvalue="Application.Courtier1" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +254,8 @@
     <MESSAGE value="Exo ECommerce v1, ajout des décrémentations stocks et facturation plus ajout de commentaires" />
     <MESSAGE value="Corrections menu client Bourse." />
     <MESSAGE value="Correction calcul variation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction calcul variation" />
+    <MESSAGE value="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

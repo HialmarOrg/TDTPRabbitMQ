@@ -1,10 +1,11 @@
-package bourse2;
+package bourse_tp;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 /**
@@ -22,7 +23,7 @@ public class Courtier2 {
 
         channel.exchangeDeclare(EXCHANGE_NAME, "headers", true);
         String queueName = channel.queueDeclare().getQueue();
-        HashMap map = new HashMap<String,Object>();
+        HashMap<String, Object> map = new HashMap<>();
         map.put("x-match","any");
         map.put("GOOG","TRUE"); // ici, on précise qu'on veut du Google
         channel.queueBind(queueName, EXCHANGE_NAME, "", map);
@@ -30,7 +31,7 @@ public class Courtier2 {
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            String message = new String(delivery.getBody(), "UTF-8");
+            String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             System.out.println(" [x] Received '" + message + "'");
         };
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> { });

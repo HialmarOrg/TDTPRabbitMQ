@@ -1,4 +1,4 @@
-package bourse2;
+package bourse_tp;
 
 /**
  * Réponses RPC

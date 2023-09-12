@@ -1,4 +1,4 @@
-package bourse2;
+package bourse_tp;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
