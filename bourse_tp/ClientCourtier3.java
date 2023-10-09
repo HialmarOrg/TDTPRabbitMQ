@@ -9,9 +9,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 /**
- * Courtier uniquement intéressé par Google
+ * Courtier intéressé par Google et Microsoft
  */
-public class Courtier2 {
+public class ClientCourtier3 {
 
     private static final String EXCHANGE_NAME = "bourse_headers";
 
@@ -25,7 +25,8 @@ public class Courtier2 {
         String queueName = channel.queueDeclare().getQueue();
         HashMap<String, Object> map = new HashMap<>();
         map.put("x-match","any");
-        map.put("GOOG","TRUE"); // ici, on précise qu'on veut du Google
+        map.put("GOOG","TRUE"); // Ici, on précise Google
+        map.put("MSFT","TRUE"); // Ici, on précise Microsoft
         channel.queueBind(queueName, EXCHANGE_NAME, "", map);
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");

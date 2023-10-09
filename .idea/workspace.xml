@@ -7,14 +7,12 @@
     <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse1/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse1/ServiceBourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse1/TitreBoursier.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/TitreBoursier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/Courtier1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/Courtier2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/Courtier3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/OperationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/RPCBourseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/RPCBourseClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/ResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ResponseMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse2/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ServiceBourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse_tp/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientCourtier1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse_tp/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientCourtier2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse_tp/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientCourtier3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse_tp/RPCBourseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientRPCBourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse_tp/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ServiceBourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bourse_tp/TitreBoursier.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/TitreBoursier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +61,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -80,9 +79,9 @@
       <recent name="exo1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Courtier3">
-    <configuration name="Courtier1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse_tp.Courtier1" />
+  <component name="RunManager" selected="Application.ClientRPCBourse">
+    <configuration name="ClientCourtier1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.ClientCourtier1" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
@@ -94,8 +93,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Courtier2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse_tp.Courtier2" />
+    <configuration name="ClientCourtier2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.ClientCourtier2" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
@@ -107,8 +106,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Courtier3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse_tp.Courtier3" />
+    <configuration name="ClientCourtier3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.ClientCourtier3" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
@@ -120,8 +119,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RPCBourseClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bourse_tp.RPCBourseClient" />
+    <configuration name="ClientRPCBourse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bourse_tp.ClientRPCBourse" />
       <module name="demoRabbitMQ" />
       <extension name="coverage">
         <pattern>
@@ -147,19 +146,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Courtier1" />
-      <item itemvalue="Application.Courtier2" />
-      <item itemvalue="Application.Courtier3" />
-      <item itemvalue="Application.RPCBourseClient" />
+      <item itemvalue="Application.ClientCourtier1" />
+      <item itemvalue="Application.ClientCourtier2" />
+      <item itemvalue="Application.ClientCourtier3" />
+      <item itemvalue="Application.ClientRPCBourse" />
       <item itemvalue="Application.ServiceBourse" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RPCBourseClient" />
+        <item itemvalue="Application.ClientRPCBourse" />
+        <item itemvalue="Application.ClientCourtier3" />
+        <item itemvalue="Application.ClientCourtier2" />
+        <item itemvalue="Application.ClientCourtier1" />
         <item itemvalue="Application.ServiceBourse" />
-        <item itemvalue="Application.Courtier3" />
-        <item itemvalue="Application.Courtier2" />
-        <item itemvalue="Application.Courtier1" />
       </list>
     </recent_temporary>
   </component>
@@ -179,6 +178,12 @@
       <workItem from="1693813550361" duration="822000" />
       <workItem from="1694073722234" duration="1576000" />
       <workItem from="1694416967332" duration="6661000" />
+      <workItem from="1694779426111" duration="185000" />
+      <workItem from="1694779630187" duration="607000" />
+      <workItem from="1695626395038" duration="676000" />
+      <workItem from="1695815220969" duration="596000" />
+      <workItem from="1696230157119" duration="2297000" />
+      <workItem from="1696840560164" duration="2767000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout biblio gson">
       <created>1686217850024</created>
@@ -229,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694442695346</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple.">
+      <created>1694503279816</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694503279816</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

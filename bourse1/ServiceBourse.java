@@ -30,8 +30,8 @@ public class ServiceBourse {
     public static void main(String[] argv) throws Exception {
         ServiceBourse service = new ServiceBourse();
 
-        TitreBoursier google = new TitreBoursier("GOOG", "Google Inc.", 391.03f, 0.0f);
-        TitreBoursier microsoft = new TitreBoursier("MSFT", "Microsoft Corp.", 25.79f, 0.0f);
+        TitreBoursier google = new TitreBoursier("GOOG", "Google Inc.", 391.03f, "USD", 0.0f, 0.0f);
+        TitreBoursier microsoft = new TitreBoursier("MSFT", "Microsoft Corp.",  25.79f, "USD", 0.0f, 0.0f);
 
         for(int i=0; i<100; i++) {
             float variation = (float)Math.random() * 20.0f - 10.0f;

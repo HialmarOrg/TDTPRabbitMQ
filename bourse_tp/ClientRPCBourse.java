@@ -18,7 +18,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * Client pour les RPC de la bourse
  */
-public class RPCBourseClient implements AutoCloseable {
+public class ClientRPCBourse implements AutoCloseable {
 
     // Connexion
     private final Connection connection;
@@ -34,7 +34,7 @@ public class RPCBourseClient implements AutoCloseable {
      * @throws IOException : si pb de communication avec le broker
      * @throws TimeoutException : si expiration de tempo
      */
-    public RPCBourseClient() throws IOException, TimeoutException {
+    public ClientRPCBourse() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         // Le broker est sur la machine locale
         factory.setHost("localhost");
@@ -52,7 +52,7 @@ public class RPCBourseClient implements AutoCloseable {
      * @throws InterruptedException inutilisé ici
      */
     public static void main(String[] argv) throws IOException, TimeoutException, ExecutionException, InterruptedException {
-        RPCBourseClient bourseClient = new RPCBourseClient();
+        ClientRPCBourse bourseClient = new ClientRPCBourse();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -83,11 +83,11 @@ public class RPCBourseClient implements AutoCloseable {
                     String mnemo = scanner.nextLine();
                     System.out.print("Nom du titre : ");
                     String nom = scanner.nextLine();
-                    System.out.print("Prix du titre : ");
-                    while(!scanner.hasNextFloat())
-                        scanner.nextLine();
-                    float prix = scanner.nextFloat();
-                    TitreBoursier titreBoursier = new TitreBoursier(mnemo, nom, prix, 0.0f);
+                    System.out.print("Valeur du titre : ");
+                    float prix = Float.parseFloat(scanner.nextLine());
+                    System.out.print("Unité de valeur du titre : ");
+                    String unite = scanner.nextLine();
+                    TitreBoursier titreBoursier = new TitreBoursier(mnemo, nom, prix, unite, 0.0f, 0.0f);
                     bourseClient.call(titreBoursier, OperationType.CREATE);
                     break;
 
@@ -95,7 +95,7 @@ public class RPCBourseClient implements AutoCloseable {
                     // Lecture d'un titre
                     System.out.print("Mnémonique du titre : ");
                     mnemo = scanner.next();
-                    titreBoursier = new TitreBoursier(mnemo,"", 0.0f, 0.0f);
+                    titreBoursier = new TitreBoursier(mnemo,"", 0.0f, "", 0.0f, 0.0f);
                     bourseClient.call(titreBoursier, OperationType.REQUEST);
                     break;
 
@@ -105,11 +105,11 @@ public class RPCBourseClient implements AutoCloseable {
                     mnemo = scanner.nextLine();
                     System.out.print("Nom du titre : ");
                     nom = scanner.nextLine();
-                    System.out.print("Prix du titre : ");
-                    while(!scanner.hasNextFloat())
-                        scanner.nextLine();
-                    prix = scanner.nextFloat();
-                    titreBoursier = new TitreBoursier(mnemo, nom, prix, 0.0f);
+                    System.out.print("Valeur du titre : ");
+                    prix = Float.parseFloat(scanner.nextLine());
+                    System.out.print("Unité de valeur du titre : ");
+                    unite = scanner.nextLine();
+                    titreBoursier = new TitreBoursier(mnemo, nom, prix, unite, 0.0f, 0.0f);
                     bourseClient.call(titreBoursier, OperationType.UPDATE);
                     break;
 
@@ -117,7 +117,7 @@ public class RPCBourseClient implements AutoCloseable {
                     // Suppression d'un titre
                     System.out.print("Mnémonique du titre : ");
                     mnemo = scanner.next();
-                    titreBoursier = new TitreBoursier(mnemo,"", 0.0f, 0.0f);
+                    titreBoursier = new TitreBoursier(mnemo,"", 0.0f, "", 0.0f, 0.0f);
                     bourseClient.call(titreBoursier, OperationType.DELETE);
                     break;
 

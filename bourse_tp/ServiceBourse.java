@@ -97,7 +97,8 @@ public class ServiceBourse {
             // on en avait une
             System.out.println("Update old "+ old);
             // calcul de la variation
-            titreBoursier.setVariation((titreBoursier.getCours() - old.getCours()) / old.getCours() * 100.0f);
+            titreBoursier.setVariationPourcent((titreBoursier.getValeur() - old.getValeur()) / old.getValeur() * 100.0f);
+            titreBoursier.setVariation(titreBoursier.getValeur() - old.getValeur());
         }
         System.out.println("Update new "+ titreBoursier);
         // On met à jour
@@ -262,8 +263,8 @@ public class ServiceBourse {
         ServiceBourse service = new ServiceBourse();
 
         // Titres de démo
-        TitreBoursier google = new TitreBoursier("GOOG", "Google Inc.", 391.03f, 0.0f);
-        TitreBoursier microsoft = new TitreBoursier("MSFT", "Microsoft Corp.", 25.79f, 0.0f);
+        TitreBoursier google = new TitreBoursier("GOOG", "Google Inc.", 391.03f, "USD", 0.0f, 0.0f);
+        TitreBoursier microsoft = new TitreBoursier("MSFT", "Microsoft Corp.", 25.79f, "USD", 0.0f, 0.0f);
         service.updateTitre(google);
         service.updateTitre(microsoft);
 
