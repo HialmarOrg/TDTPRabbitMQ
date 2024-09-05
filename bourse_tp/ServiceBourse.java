@@ -96,9 +96,15 @@ public class ServiceBourse {
         if (old != null) {
             // on en avait une
             System.out.println("Update old "+ old);
-            // calcul de la variation
-            titreBoursier.setVariationPourcent((titreBoursier.getValeur() - old.getValeur()) / old.getValeur() * 100.0f);
-            titreBoursier.setVariation(titreBoursier.getValeur() - old.getValeur());
+            if (old.getValeur() == 0.0) {
+                // on ne peut pas calculer la variation en pourcentage on laisse à 0
+                titreBoursier.setVariationPourcent(0);
+                titreBoursier.setVariation(titreBoursier.getValeur() - old.getValeur());
+            } else {
+                // calcul de la variation
+                titreBoursier.setVariationPourcent((titreBoursier.getValeur() - old.getValeur()) / old.getValeur() * 100.0f);
+                titreBoursier.setVariation(titreBoursier.getValeur() - old.getValeur());
+            }
         }
         System.out.println("Update new "+ titreBoursier);
         // On met à jour

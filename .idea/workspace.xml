@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple.">
+    <list default="true" id="9be87c0e-b134-465a-9426-0f212eda57b9" name="Changes" comment="Modification de titre boursier et des noms des applications.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse1/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse1/ServiceBourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse_tp/Courtier1.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientCourtier1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse_tp/Courtier2.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientCourtier2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse_tp/Courtier3.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientCourtier3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse_tp/RPCBourseClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ClientRPCBourse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bourse_tp/ServiceBourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/ServiceBourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bourse_tp/TitreBoursier.java" beforeDir="false" afterPath="$PROJECT_DIR$/bourse_tp/TitreBoursier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,39 +27,47 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2Quy4A9UsAS2z4bslSloT1rNZjp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/torguet/dev/Java/TDTPRabbitMQ/bourse2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore_missing_gitignore": "true",
+    "last_opened_file_path": "/Users/torguet/dev/Java/TDTPRabbitMQ",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bourse2" />
@@ -79,7 +82,7 @@
       <recent name="exo1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientRPCBourse">
+  <component name="RunManager" selected="Application.ClientCourtier3">
     <configuration name="ClientCourtier1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bourse_tp.ClientCourtier1" />
       <module name="demoRabbitMQ" />
@@ -147,18 +150,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.ClientCourtier1" />
+      <item itemvalue="Application.ServiceBourse" />
       <item itemvalue="Application.ClientCourtier2" />
       <item itemvalue="Application.ClientCourtier3" />
       <item itemvalue="Application.ClientRPCBourse" />
-      <item itemvalue="Application.ServiceBourse" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientRPCBourse" />
+        <item itemvalue="Application.ServiceBourse" />
         <item itemvalue="Application.ClientCourtier3" />
         <item itemvalue="Application.ClientCourtier2" />
         <item itemvalue="Application.ClientCourtier1" />
-        <item itemvalue="Application.ServiceBourse" />
+        <item itemvalue="Application.ClientRPCBourse" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +186,10 @@
       <workItem from="1695626395038" duration="676000" />
       <workItem from="1695815220969" duration="596000" />
       <workItem from="1696230157119" duration="2297000" />
-      <workItem from="1696840560164" duration="2767000" />
+      <workItem from="1696840560164" duration="3812000" />
+      <workItem from="1696939521046" duration="679000" />
+      <workItem from="1697527019212" duration="10000" />
+      <workItem from="1725541712603" duration="2169000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout biblio gson">
       <created>1686217850024</created>
@@ -241,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694503279816</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Modification de titre boursier et des noms des applications.">
+      <created>1696843485758</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696843485758</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +280,8 @@
     <MESSAGE value="Corrections menu client Bourse." />
     <MESSAGE value="Correction calcul variation" />
     <MESSAGE value="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fin des commentaires et Courtier2 s'abonne à 2 titres pour exemple." />
+    <MESSAGE value="Modification de titre boursier et des noms des applications." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification de titre boursier et des noms des applications." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
